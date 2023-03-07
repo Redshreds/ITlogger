@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import TechItem from './TechItem';
-// import { getTechs } from '../../actions/techActions';
+import { getTechs } from '../../actions/techActions';
 
 const TechListModal = ({ getTechs, tech: { techs, loading } }) => {
   useEffect(() => {
@@ -33,9 +33,4 @@ const mapStateToProps = (state) => ({
   tech: state.tech,
 });
 
-// // export default connect(
-//   mapStateToProps,
-//   { getTechs }
-// )(TechListModal);
-
-export default TechListModal;
+export default connect(mapStateToProps, { getTechs })(TechListModal);
